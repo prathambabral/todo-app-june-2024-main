@@ -33,7 +33,7 @@ function Popup(props) {
                                     <div className='p-2'>
                                         <p>Are you sure? you want to delete the task?</p>
                                         <div className='d-flex'>
-                                            <button className='btn btn-danger ms-auto' onClick={()=>{deleteTask(data)}}>Yes</button>
+                                            <button className='btn btn-danger ms-auto' onClick={() => { deleteTask(data) }}>Yes</button>
                                             <button className='btn btn-warning ms-2' data-bs-dismiss="modal">No</button>
                                         </div>
 

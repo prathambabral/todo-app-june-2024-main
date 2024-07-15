@@ -19,6 +19,11 @@ function TaskList(props) {
     const init = { type: null, data: null };
     const { allTasks } = useContext(TaskContext);
     const [state, dispatch] = useReducer(reducer, init);
+    const handleSearch = (e) =>{
+        const search = e.target.value;
+        const filtered = allTasks.filter((task) => task.title.toLowerCase().includes(search.toLowerCase()));
+        dispatch({ type: "VIEW", payload: filtered });
+    }
     return (
         <div className='container'>
             <div className='p-4 bg-primary text-white mt-5'>
@@ -27,6 +32,9 @@ function TaskList(props) {
                     <Link className="btn btn-info" to="/create-task">Create Task</Link>
                 </div>
 
+                <div className='py-2'>
+                    <input type="text" className='form-control' placeholder='Search Task' onChange={handleSearch}/>
+                </div>
 
                 <div className='p-2'>
                     <div className='row bg-dark rounded-1 py-2 mb-1'>
